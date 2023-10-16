@@ -1,5 +1,7 @@
 package com.globo.produto.service;
 
+import com.globo.produto.entity.Produto;
+
 import java.util.List;
 import java.util.Optional;
 
