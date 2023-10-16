@@ -11,9 +11,9 @@ Postman (ou ferramenta similar para testar os endpoints)
 ## Estrutura do Projeto
 O projeto segue a estrutura padrão do Spring Boot, com as seguintes camadas:
 
-Controller: Camada responsável por receber as requisições HTTP e fornecer respostas apropriadas.
-Service: Camada que contém a lógica de negócios e interage com o repositório.
-Repository: Camada que lida com a persistência de dados.
+## Controller: Camada responsável por receber as requisições HTTP e fornecer respostas apropriadas.
+## Service: Camada que contém a lógica de negócios e interage com o repositório.
+## Repository: Camada que lida com a persistência de dados.
 
 ## Testando os Endpoints
 Use o Postman ou uma ferramenta similar para testar os endpoints.
