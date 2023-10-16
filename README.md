@@ -1,21 +1,21 @@
-Projeto de Operações CRUD com Spring Boot e H2 Database
+## Projeto de Operações CRUD com Spring Boot e H2 Database
 Este projeto é um aplicativo Spring Boot que realiza operações CRUD (Create, Read, Update, Delete) em uma entidade "Produto" usando uma base de dados H2 (banco de dados em memória).
 
-Tecnologias Utilizadas
+## Tecnologias Utilizadas
 Spring Boot
 Spring Data JPA
 H2 Database
 Maven
 JUnit
 Postman (ou ferramenta similar para testar os endpoints)
-Estrutura do Projeto
+## Estrutura do Projeto
 O projeto segue a estrutura padrão do Spring Boot, com as seguintes camadas:
 
 Controller: Camada responsável por receber as requisições HTTP e fornecer respostas apropriadas.
 Service: Camada que contém a lógica de negócios e interage com o repositório.
 Repository: Camada que lida com a persistência de dados.
 
-Testando os Endpoints
+## Testando os Endpoints
 Use o Postman ou uma ferramenta similar para testar os endpoints.
 Utilize os JSONs de exemplo fornecidos para fazer as requisições.
 Os endpoints são:
