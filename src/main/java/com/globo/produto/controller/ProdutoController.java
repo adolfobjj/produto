@@ -1,5 +1,7 @@
 package com.globo.produto.controller;
 
+import com.globo.produto.entity.Produto;
+import com.globo.produto.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
