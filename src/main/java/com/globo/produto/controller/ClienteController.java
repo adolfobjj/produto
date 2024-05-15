@@ -1,6 +1,7 @@
 package com.globo.produto.controller;
 
 import com.globo.produto.entity.Cliente;
+import com.globo.produto.repository.ClienteRepository;
 import com.globo.produto.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,8 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     @GetMapping
     public List<Cliente> getAllClientes() {
@@ -50,6 +53,11 @@ public class ClienteController {
                     clienteService.deleteById(id);
                     return ResponseEntity.ok().<Void>build();
                 }).orElse(ResponseEntity.notFound().build());
+    }
+    // Endpoint para buscar clientes por nome
+    @GetMapping("/buscar")
+    public List<Cliente> buscarPorNome(@RequestParam("nome") String nome) {
+        return clienteRepository.findByNomeContainingIgnoreCase(nome);
     }
 }
 
