@@ -9,6 +9,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
@@ -18,33 +28,40 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @GetMapping
-    public ResponseEntity<List<Produto>> obterTodosProdutos() {
-        List<Produto> produtos = produtoService.obterTodos();
-        return new ResponseEntity<>(produtos, HttpStatus.OK);
+    public List<Produto> getAllProdutos() {
+        return produtoService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Produto> obterProdutoPorId(@PathVariable Long id) {
-        Optional<Produto> produto = produtoService.obterPorId(id);
-        return produto.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<Produto> getProdutoById(@PathVariable Long id) {
+        return produtoService.findById(id)
+                .map(produto -> ResponseEntity.ok().body(produto))
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public ResponseEntity<Produto> criarProduto(@RequestBody Produto produto) {
-        Produto novoProduto = produtoService.criarProduto(produto);
-        return new ResponseEntity<>(novoProduto, HttpStatus.CREATED);
+    public Produto createProduto(@RequestBody Produto produto) {
+        return produtoService.save(produto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Produto> atualizarProduto(@PathVariable Long id, @RequestBody Produto produto) {
-        Produto produtoAtualizado = produtoService.atualizarProduto(id, produto);
-        return new ResponseEntity<>(produtoAtualizado, HttpStatus.OK);
+    public ResponseEntity<Produto> updateProduto(@PathVariable Long id, @RequestBody Produto produtoDetails) {
+        return produtoService.findById(id)
+                .map(produto -> {
+                    produto.setNome(produtoDetails.getNome());
+                    produto.setDescricao(produtoDetails.getDescricao());
+                    produto.setPreco(produtoDetails.getPreco());
+                    Produto updatedProduto = produtoService.save(produto);
+                    return ResponseEntity.ok().body(updatedProduto);
+                }).orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluirProduto(@PathVariable Long id) {
-        produtoService.excluirProduto(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<Void> deleteProduto(@PathVariable Long id) {
+        return produtoService.findById(id)
+                .map(produto -> {
+                    produtoService.deleteById(id);
+                    return ResponseEntity.ok().<Void>build();
+                }).orElse(ResponseEntity.notFound().build());
     }
 }

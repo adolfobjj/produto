@@ -1,29 +1,19 @@
 package com.globo.produto.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-public class Produto {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String descricao;
-    private Double preco;
+    private String email;
 
-    @ManyToMany(mappedBy = "produtos")
-    @JsonIgnore
+    @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
 
     // Getters e Setters
@@ -43,20 +33,12 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<Compra> getCompras() {

@@ -5,15 +5,32 @@ import com.globo.produto.entity.Produto;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProdutoService {
+import com.globo.produto.repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-    List<Produto> obterTodos();
+import java.util.List;
+import java.util.Optional;
 
-    Optional<Produto> obterPorId(Long id);
+@Service
+public class ProdutoService {
 
-    Produto criarProduto(Produto produto);
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
-    Produto atualizarProduto(Long id, Produto produto);
+    public List<Produto> findAll() {
+        return produtoRepository.findAll();
+    }
 
-    void excluirProduto(Long id);
+    public Optional<Produto> findById(Long id) {
+        return produtoRepository.findById(id);
+    }
+
+    public Produto save(Produto produto) {
+        return produtoRepository.save(produto);
+    }
+
+    public void deleteById(Long id) {
+        produtoRepository.deleteById(id);
+    }
 }
