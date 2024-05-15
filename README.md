@@ -29,6 +29,12 @@ GET /produtos/{id}: Obter um produto pelo ID.<br />
 PUT /produtos/{id}: Atualizar um produto pelo ID.<br />
 DELETE /produtos/{id}: Excluir um produto pelo ID.<br /><br />
 
+foi criado um endpoint onde pode se consultar se existe um cliente pelo nome: <br />
+Neste exemplo, o endpoint /clientes/buscar é mapeado para o método buscarPorNome no controlador. <br />
+Ele espera um parâmetro de consulta chamado "nome" e usa o método findByNomeContainingIgnoreCase <br />
+no repositório de clientes para buscar clientes cujos nomes contenham a sequência fornecida, ignorando maiúsculas e minúsculas. <br />
+exemplo : http://localhost:8080/clientes/buscar?nome=Maria <br />
+
 Segue exemplo de JSOn para o método POST:<br /><br />
 {<br />
   "nome": "Produto Teste 1",<br />
