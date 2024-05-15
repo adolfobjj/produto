@@ -1,8 +1,8 @@
 <h1 align="center">Projeto de Operações CRUD com Spring Boot e H2 Database</h1>
 Este projeto é um aplicativo Spring Boot que realiza operações CRUD (Create, Read, Update, Delete) nas entidades:
-"Produto"
-"Cliente"
-"Compra"
+"Produto" <br />
+"Cliente" <br />
+"Compra" <br />
 usando uma base de dados H2 (banco de dados em memória).
 
 <h2 align="left">Tecnologias Utilizadas</h2>
@@ -35,5 +35,13 @@ Segue exemplo de JSOn para o método POST:<br /><br />
   "descricao": "Descrição do Produto Teste",<br />
   "preco": 19.99<br />
 }<br />
+Segue exemplo de insert no sql: <br />
+INSERT INTO cliente (nome, email) VALUES ('Maria Oliveira', 'maria@example.com');<br />
+INSERT INTO cliente (nome, email) VALUES ('Carlos Santos', 'carlos@example.com');<br />
+INSERT INTO cliente (nome, email) VALUES ('Ana Silva', 'ana@example.com');<br />
+INSERT INTO produto (nome, descricao, preco) VALUES ('Calça Jeans', 'Calça jeans azul, tamanho M', 79.90);<br />
+INSERT INTO produto (nome, descricao, preco) VALUES ('Tênis Esportivo', 'Tênis de corrida preto, tamanho 42', 129.90);<br />
+INSERT INTO produto (nome, descricao, preco) VALUES ('Mochila', 'Mochila escolar preta, com compartimento para notebook', 49.90);<br />
+
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um Pull Request ou Issues para sugerir melhorias ou correções.<br />
