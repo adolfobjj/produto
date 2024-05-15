@@ -1,5 +1,9 @@
 <h1 align="center">Projeto de Operações CRUD com Spring Boot e H2 Database</h1>
-Este projeto é um aplicativo Spring Boot que realiza operações CRUD (Create, Read, Update, Delete) em uma entidade "Produto" usando uma base de dados H2 (banco de dados em memória).
+Este projeto é um aplicativo Spring Boot que realiza operações CRUD (Create, Read, Update, Delete) nas entidades:
+"Produto"
+"Cliente"
+"Compra"
+usando uma base de dados H2 (banco de dados em memória).
 
 <h2 align="left">Tecnologias Utilizadas</h2>
 Spring Boot<br />
